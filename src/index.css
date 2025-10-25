@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'belaRegular';
+  src: url(./assets/font/Belanosima-Regular.ttf);
+}
+
+* {
+  font-family: belaRegular;
+}
