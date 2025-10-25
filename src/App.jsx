@@ -1,4 +1,5 @@
 import Button from "./components/Button"
+import NavBar from "./components/NavBar"
 import TextBox from "./components/TextBox"
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       </div>
       <Button modo="azul" width='363px' />
       <Button modo="branco" width='50%' />
+      <NavBar />
     </>
   )
 }
