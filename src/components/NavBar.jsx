@@ -13,7 +13,7 @@ import empresaIcon from '../assets/img/empresa.svg?react';
 function NavBar () {
     return (
         
-        <div id='navbar' className='text-[20px] h-[100%] fixed top-0 border-b-[20px] border-t-[20px] border-l-[20px] border-r-[2px] bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[90px] overflow-hidden'>
+        <div id='navbar' className='text-[20px] h-full fixed top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[90px] overflow-hidden'>
             <ul  className='grid grid-cols-1 gap-13 cursor-pointer'>
                 <li> <img src={homeIcon} /> Página Inicial</li>
                 <li> <img src={dashIcon}  /> DashBoard</li>
