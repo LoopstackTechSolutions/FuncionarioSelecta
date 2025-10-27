@@ -38,5 +38,74 @@
 
 label, input[type="text"], input[type="password"], input[type="email"], select {
   font-size: 20px;
+}
 
+#saida {
+  gap: 0px;
+}
+
+#saida:hover {
+  gap: 10px;
+}
+
+#saida img {
+  width: 0px;
+  height: 21px;
+  transition: width 0.3s;
+}
+
+#saida:hover img {
+  width: 21px;
+}
+
+#menuHome div:not(#tooltip) {
+  text-align: center;
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  height: 150px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#menuHome div:hover:not(#tooltip) {
+  background-color: #0074D9;
+  border-color: #0074D9;
+  letter-spacing: 2px;
+}
+
+#menuHome div:hover ~ #tooltip {
+  transform: scale(1.0);
+}
+
+#menuHome div:hover h1, #menuHome div:hover img {
+  filter: invert();
+}
+
+#menuHome img {
+  width: 64px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fundoGradient div {
+  background-image: radial-gradient(#0074D9 , white 70%);
+  opacity: 50%;
+  position: absolute;
+  z-index: -1;
+}
+
+#tooltip {
+  box-shadow: 0px 4px 6px #01437c65;
+  transition: all 0.3s ease-in-out;
+}
+
+#tooltip span {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
