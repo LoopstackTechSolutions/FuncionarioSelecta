@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import logo from "../assets/img/selecta.svg?react";
+import logo from "../assets/img/logo.png";
 import TextBox from "../components/TextBox";
 import FundoLogin from "../components/FundoLogin";
 
@@ -9,7 +9,7 @@ function Login() {
         <FundoLogin>
 
             <form className="w-[40%] m-auto">
-            <img src={logo} className="w-[336px] h-auto m-auto pt-[100px]" alt="logo" />
+            <img src={logo} className="w-[300px] h-auto m-auto pt-[200px] mb-20" alt="logo" />
     
             <div className="mb-5 text-white">
                 <label>E-mail</label>
@@ -26,7 +26,7 @@ function Login() {
                 <Button modo="branco" texto="Entrar" width="100%" height="53px" />
             </div>
 
-            <h2 className="flex justify-end text-[18px] gap-2 text-white cursor-default">Não tem uma conta? <a className="hover:underline hover:cursor-pointer">Cadastre-se</a></h2>
+            <h2 className="flex justify-end text-[18px] gap-2 text-white cursor-default">Não tem uma conta? <a className="hover:underline hover:cursor-pointer" href="http://localhost:5173/cadastrarUsuario">Cadastre-se</a></h2>
             
         </form>
 
