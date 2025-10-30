@@ -10,9 +10,9 @@ function CadastrarFuncionario() {
         <Header />
         <NavBar />
 
-        <h1 className="text-center text-[40px] text-[#005FB3] mt-20 mb-10">Cadastrar Funcionário</h1>
+        <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[790px]">Cadastrar Funcionário</h1>
 
-        <Form margin="50px auto">
+        <Form margin="50px 500px">
 
             <label>Nome</label>
             <TextBox type="text" color="cinza" width="100%" mb="50px" placeholder="Digite o nome" />
