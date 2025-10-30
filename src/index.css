@@ -20,12 +20,31 @@ h1, h2, h3, h4, h5, h6 {
 #navbar li {
   display: flex;
   align-items:center;
-  gap: 20px;
-  text-wrap: nowrap;
 }
 
-#navbar:hover li{
+#navbar li, #navbar div {
+  gap: 30px;
+  text-wrap: nowrap;
+  border: 10px solid transparent;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+#navbar div div {
+  border: 0px;
+}
+
+#navbar li:hover, #navbar div:hover {
+  background-color: #005aa8;
+  border-color: #005aa8;
+}
+
+#navbar:hover li img, #navbar:hover div img{
   filter: invert(100%);
+}
+
+#navbar:hover li, #navbar:hover div {
+  color: white;
 }
 
 #navbar img {
