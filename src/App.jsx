@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-do
 import CadastrarUsuario from "./pages/CadastrarUsuario"
 import CadastrarFuncionario from "./pages/CadastrarFuncionario"
 import CadastrarCd from "./pages/CadastrarCd"
+import PedidoInterno from "./pages/PedidoInterno"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cadastrarUsuario" element={<CadastrarUsuario />} />
           <Route path="/funcionarioCadastrar" element={<CadastrarFuncionario />} />
           <Route path="/CDcadastrar" element={<CadastrarCd />} />
+          <Route path="/fazerPedidoInterno" element={<PedidoInterno />} />
         </Routes>
       </Router>
   )

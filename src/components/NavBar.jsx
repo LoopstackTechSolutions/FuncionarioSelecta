@@ -8,6 +8,7 @@ import ticketIcon from '../assets/img/ticket.svg?react';
 import entregadorIcon from '../assets/img/entregador.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
 import cdIcon from '../assets/img/cd.svg?react';
+import cdCadastrarIcon from '../assets/img/cadastrarCd.svg?react';
 import empresaIcon from '../assets/img/empresa.svg?react';
 import pedidoIcon from '../assets/img/pedido.svg?react';
 import { useNavigate } from 'react-router-dom';
@@ -44,8 +45,12 @@ function NavBar () {
         navigate('/centroDistribuicao');
     }
 
+    const handleCdCadastrarClick = () => {
+        navigate('/CDcadastrar');
+    }
+
     const handlePedidoClick = () => {
-        navigate('/pedidoInterno');
+        navigate('/fazerPedidoInterno');
     }
 
     const handleTicketClick = () => {
@@ -62,7 +67,7 @@ function NavBar () {
     return (
         
         <div id='navbar' className='mr-28 text-[20px] h-full fixed top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[110px] overflow-hidden'>
-            <ul  className='flex flex-col gap-10 cursor-pointer'>
+            <ul  className='flex flex-col gap-8 cursor-pointer'>
                 <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
                 <li onClick={handleDashBoardClick}> <img src={dashIcon}  /> DashBoard</li>
                 <div className='grid h-[50px] overflow-hidden hover:h-[250px] transition-all duration-300 mr-2 w-full'> 
@@ -92,6 +97,7 @@ function NavBar () {
                 <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon} /> Cadastrar Funcionário</li>
                 <li onClick={handlePedidoClick}> <img src={pedidoIcon} /> Fazer Pedido Interno</li>
                 <li onClick={handleCdClick}> <img src={cdIcon} /> Detalhes Centro de Distribuição</li>
+                <li onClick={handleCdCadastrarClick}> <img src={cdCadastrarIcon} /> Cadastrar Centro de Distribuição</li>
                 <li onClick={handleEmpresaParClick}> <img src={empresaIcon} /> Aceitar Empresa Parceira</li>
             </ul>
         </div>

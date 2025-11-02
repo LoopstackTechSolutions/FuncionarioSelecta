@@ -11,6 +11,7 @@ import ticketIcon from '../assets/img/ticket.svg?react';
 import entregadorIcon from '../assets/img/entregador.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
 import cdIcon from '../assets/img/cd.svg?react';
+import cdCadastrarIcon from '../assets/img/cadastrarCd.svg?react';
 import empresaIcon from '../assets/img/empresa.svg?react';
 import pedido from '../assets/img/pedido.svg?react';
 
@@ -42,8 +43,12 @@ function Home() {
         navigate('/centroDistribuicao');
     }
 
+    const handleCdCadastrarClick = () => {
+        navigate('/CDcadastrar');
+    }
+
     const handlePedidoClick = () => {
-        navigate('/pedidoInterno');
+        navigate('/fazerPedidoInterno');
     }
 
     const handleTicketClick = () => {
@@ -105,6 +110,11 @@ function Home() {
             <div onClick={handleCdClick}>
                 <img src={cdIcon} alt="cd" />
                 <h1>Detalhes Centro de Distribuição</h1>
+            </div>
+
+            <div onClick={handleCdCadastrarClick}>
+                <img src={cdCadastrarIcon} alt="cdCadastrar" />
+                <h1>Cadastrar Centro de Distribuição</h1>
             </div>
 
             <div onClick={handleFuncionarioClick}>
