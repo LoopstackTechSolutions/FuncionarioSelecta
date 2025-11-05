@@ -24,7 +24,7 @@ function Home() {
     }
 
     const handleFuncionarioClick = () => {
-        navigate('/funcionarioCadastrar');
+        navigate('/funcionario/cadastrar');
     }
 
     const handleEntregadorClick = () => {
@@ -44,7 +44,7 @@ function Home() {
     }
 
     const handleCdCadastrarClick = () => {
-        navigate('/CDcadastrar');
+        navigate('/centroDistribuicao/cadastrar');
     }
 
     const handlePedidoClick = () => {

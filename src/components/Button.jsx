@@ -24,18 +24,35 @@ function Button ({texto="Cadastrar", submit = true, modo, width, height = "auto"
     }
 
     else {
-        modo === 'branco' ?
-        modo = 'border-white text-white'
-        :
-        modo = 'border-black text-black'
+        if (texto == 'Cadastrar')
+        {
+            return (
+                <button 
+                onClick={handleLoginClick} 
+                className={`text-[16px] p-1 cursor-pointer border rounded-[5px] border-black text-black hover:text-[#005aa8] hover:border-[#005aa8] transition-all duration-300 flex items-center justify-center`} 
+                style={{width: width, height: height}}>
+                    {texto}
+                </button>
+            )
+        }
 
-        return (
-            <button onClick={handleLoginClick} id="saida" className={`text-[16px] p-1 cursor-pointer border rounded-[5px] ${modo} hover:bg-[#D90000] hover:text-white transition-all duration-300 flex items-center justify-center`} 
-            style={{width: width, height: height}}>
-                {texto}
-                <img src={saida} />
-            </button>
-        )
+        else
+        {
+            modo === 'branco' ?
+            modo = 'border-white text-white'
+            :
+            modo = 'border-black text-black'
+
+            return (
+                <button onClick={handleLoginClick} id="saida" className={`text-[16px] p-1 cursor-pointer border rounded-[5px] ${modo} hover:bg-[#D90000] hover:text-white transition-all duration-300 flex items-center justify-center`} 
+                style={{width: width, height: height}}>
+                    {texto}
+                    <img src={saida} />
+                </button>
+            )
+        }
+
+        
     }
 }
 

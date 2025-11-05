@@ -5,7 +5,9 @@ import Login from "./pages/Login"
 import Home from "./pages/Home"
 import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import CadastrarUsuario from "./pages/CadastrarUsuario"
+import Funcionarios from "./pages/Funcionario"
 import CadastrarFuncionario from "./pages/CadastrarFuncionario"
+import CentroDistribuicao from "./pages/CentroDistribuicao"
 import CadastrarCd from "./pages/CadastrarCd"
 import PedidoInterno from "./pages/PedidoInterno"
 
@@ -17,8 +19,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cadastrarUsuario" element={<CadastrarUsuario />} />
-          <Route path="/funcionarioCadastrar" element={<CadastrarFuncionario />} />
-          <Route path="/CDcadastrar" element={<CadastrarCd />} />
+          <Route path="/funcionario" element={<Funcionarios />} />
+          <Route path="/funcionario/cadastrar" element={<CadastrarFuncionario />} />
+          <Route path="/centroDistribuicao" element={<CentroDistribuicao />} />
+          <Route path="/centroDistribuicao/cadastrar" element={<CadastrarCd />} />
           <Route path="/fazerPedidoInterno" element={<PedidoInterno />} />
         </Routes>
       </Router>

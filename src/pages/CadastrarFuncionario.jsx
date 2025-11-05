@@ -13,7 +13,6 @@ function CadastrarFuncionario() {
 
         <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[790px]">Cadastrar Funcionário</h1>
 
-        
         <Form margin="50px 500px">
 
             <label>Nome</label>
