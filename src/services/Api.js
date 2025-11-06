@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://selectaapi-ehg0gcd6cmapggeq.brazilsouth-01.azurewebsites.net/swagger/index.html',
-    timeout: 10000,
+    baseURL: '/api',
+    timeout: 30000,
     headers: {
         'Content-Type': 'application/json',
     },

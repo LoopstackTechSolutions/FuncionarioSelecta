@@ -5,6 +5,26 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),
-    tailwindcss(),
-  ],
+    tailwindcss(),],
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://selectaapi-ehg0gcd6cmapggeq.brazilsouth-01.azurewebsites.net/',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          secure: false,
+          configure: (proxy, _options) => {
+            proxy.on('error', (err, _req, _res) => {
+              console.log('proxy error', err);
+            });
+            proxy.on('proxyReq', (proxyReq, req, _res) => {
+              console.log('Mandando Request para o target:', req.method, req.url);
+            });
+            proxy.on('proxyRes', (proxyRes, req, _res) => {
+              console.log('Recebendo resposta do Target:', proxyRes.statusCode, req.url);
+            });
+          },
+        }
+      }
+    }
 })

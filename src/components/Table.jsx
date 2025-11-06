@@ -1,4 +1,9 @@
+import { useFuncionarios } from "../hook/useFuncionario";
+
 function Table() {
+
+    const {funcionarios, loading, error, refetch} = useFuncionarios();
+
     return (
         <div className="w-[70%] m-auto text-[25px] border border-transparent rounded-[10px] overflow-hidden"
             style={{boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.50)'}}>
@@ -7,18 +12,17 @@ function Table() {
                 className="bg-[#0074D9] text-white">
                     
                     <tr>
-                        <th>dfdgfg</th>
-                        <th>dfgdfg</th>
-                        <th>khjkhjk</th>
+                        <th>ID</th>
+                        <th>Nome</th>
                         <th>Ação</th>
                     </tr>
                 
             </thead>
             <tbody className="text-center bg-white">
-                <tr className="">
-                    <td>fhgfhfgh</td>
-                    <td>vbnvbn</td>
-                    <td>wererwer</td>
+                {funcionarios.map((funcionario) => (
+                    <tr key={funcionario.idCategoria}>
+                    <td>{funcionario.idCategoria}</td>
+                    <td>{funcionario.nome}</td>
 
                     <td>
                         <div className="mt-2 mb-2 border-l border-gray-400">
@@ -26,6 +30,8 @@ function Table() {
                         </div>
                     </td>
                 </tr>
+                ))}
+                
             </tbody>
         </table>
         </div>
