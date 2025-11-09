@@ -1,4 +1,4 @@
-function TextBox ({type, width, height = '36px', mb = '0px', color = 'branco', placeholder = ''}) {
+function TextBox ({type, value, onchange, width, height = '36px', mb = '0px', color = 'branco', placeholder = ''}) {
 
     color === 'branco' ?
     color = 'border-2 border-white rounded-[5px] focus:shadow-lg'
@@ -7,7 +7,10 @@ function TextBox ({type, width, height = '36px', mb = '0px', color = 'branco', p
 
     return (
         <>
-        <input type={type} className={`p-[5px] h-9 outline-0 transition-all duration-300 ${color}`} 
+        <input type={type}
+        value={value} 
+        onChange={onchange}
+        className={`p-[5px] h-9 outline-0 transition-all duration-300 ${color}`} 
         placeholder={placeholder}
         style={{width: width, height: height, marginBottom: mb}}
         required/>

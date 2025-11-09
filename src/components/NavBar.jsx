@@ -26,7 +26,7 @@ function NavBar () {
     }
 
     const handleFuncionarioClick = () => {
-        navigate('/funcionarioCadastrar');
+        navigate('/funcionario/cadastrar');
     }
 
     const handleEntregadorClick = () => {
