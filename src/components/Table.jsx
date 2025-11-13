@@ -1,13 +1,19 @@
 import { useFuncionarios } from "../hook/useFuncionario";
 
-function Table() {
+function Table({headerItens = []}) {
 
     const {funcionarios, loading, error, refetch} = useFuncionarios();
+
+    const header = [];
+    headerItens.forEach((iten) => {
+        header.push(<th>{iten}</th>)
+    })
+
 
     return (
         <div className="w-[70%] m-auto text-[25px] border border-transparent rounded-[10px] overflow-hidden"
             style={{boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.50)'}}>
-            <table className="w-full table-fixed">
+            {/* <table className="w-full table-fixed">
             <thead 
                 className="bg-[#0074D9] text-white">
                     
@@ -31,6 +37,23 @@ function Table() {
                     </td>
                 </tr>
                 ))}
+                
+            </tbody>
+        </table> */}
+
+        <table className="w-full table-fixed">
+            <thead 
+                className="bg-[#0074D9] text-white">
+                    
+                    <tr>
+                        {header}
+                    </tr>
+                
+            </thead>
+            <tbody className="text-center bg-white">
+                
+                
+   
                 
             </tbody>
         </table>

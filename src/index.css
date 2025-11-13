@@ -141,3 +141,7 @@ select, input[type="text"], input[type="password"], input[type="email"] {
 #grafico, #graficos div {
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.50);
 }
+
+#buscar:has(#buscarInput:focus) {
+  border-color: #0074D9;
+}
