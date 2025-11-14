@@ -13,7 +13,7 @@ export const useFuncionarios = () => {
             setLoading(true);
             setError('');
 
-            const response = await api.get('/selectaAPI/Category/get-all-categories');
+            const response = await api.get('/selectaAPI/Employee/list-employees');
             setFuncionarios(response.data);
         }
 

@@ -9,7 +9,7 @@ function DashBoard() {
 
         <h1 className="text-[40px] text-[#005FB3] mt-30 mb-10 ml-[880px]">DashBoard</h1>
 
-        <div id="dashboard" className="flex flex-col ml-[350px] w-[70%] text-white text-center">
+        <div id="dashboard" className="flex flex-col ml-[330px] w-[70%] text-white text-center">
             <section className="flex gap-13">
                 <div className="bg-[#0074D9] h-[174px] w-[408px] border border-transparent rounded-[20px] pt-10">
                     <h4 className="text-[20px]">Funcionários Totais</h4>

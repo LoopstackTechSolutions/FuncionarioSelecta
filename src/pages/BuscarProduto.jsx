@@ -11,13 +11,13 @@ function BuscarProduto() {
         <NavBar />
         <h1 className="text-[40px] text-[#005FB3] mt-30 mb-10 ml-[880px]">Produtos</h1>
 
-        <div id="buscar" className="ml-[290px] flex items-center gap-2 border-2 border-[#7C7C7C] rounded-[50px] h-[50px] w-[50px] text-[65px] bg-white mb-8 hover:w-[523px] transition-all duration-500 cursor-pointer">
+        <div id="buscar" className="ml-80 flex items-center gap-2 border-2 border-[#7C7C7C] rounded-[50px] h-[50px] w-[50px] text-[65px] bg-white mb-8 hover:w-[523px] transition-all duration-500 cursor-pointer">
             <img src={lupa} className="w-[39px] h-[39px] ml-1" />
             <input type="text" id="buscarInput" placeholder="Buscar..." className="w-full focus:border-0 outline-0" />
         </div>
         
 
-        <Table headerItens={['Id','Vendedor','Nome','Descrição','Quantidade','Condição','Preço','Peso','Nota']} />
+        <Table ml="ml-[320px]" headerItens={['Id','Vendedor','Nome','Descrição','Quantidade','Condição','Preço','Peso','Nota']} />
 
         <div id='fundoGradient'>
             <div className='w-[938px] h-[875px] top-[-300px] left-[-300px]'></div>
