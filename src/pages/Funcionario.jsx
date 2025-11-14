@@ -26,6 +26,13 @@ function Funcionario() {
                         <td>{funcionario.senha == null ? ' ' : funcionario.senha}</td>
                         <td>{funcionario.cpf}</td>
                         <td>{funcionario.nivelAcesso}</td>
+                        <td>
+                            <div className="flex justify-center items-center gap-1.5 text-white mb-2.5 mt-2.5">
+                                <button className="bg-red-700 border-4 border-red-700 rounded-[5px] hover:bg-red-800 hover:border-red-800 transition-all duration-300 cursor-pointer">Deletar</button>
+                                <span className="text-gray-400">|</span>
+                                <button className="bg-[#0074D9] border-4 border-[#0074D9] rounded-[5px] hover:bg-[#0056a1] hover:border-[#0056a1] transition-all duration-300 cursor-pointer">Editar</button>
+                            </div>
+                        </td>
 
                     </tr>
                 ))}

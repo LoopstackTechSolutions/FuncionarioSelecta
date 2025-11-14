@@ -20,6 +20,7 @@ function Table({ml, children, headerItens = []}) {
                     
                     <tr>
                         {header}
+                        <th>Ação</th>
                     </tr>
                 
             </thead>
