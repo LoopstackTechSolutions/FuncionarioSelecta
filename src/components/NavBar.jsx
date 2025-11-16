@@ -29,6 +29,10 @@ function NavBar () {
         navigate('/funcionario/cadastrar');
     }
 
+    const handleFunciCadastrarClick = () => {
+        navigate('/funcionario/cadastrar');
+    }
+
     const handleEntregadorClick = () => {
         navigate('/entregadorAceitar');
     }
@@ -73,19 +77,19 @@ function NavBar () {
                 <div className='grid h-[50px] overflow-hidden hover:h-[250px] transition-all duration-300 mr-2 w-full'> 
                     
                     <div className='flex items-center justify-items-start w-full'>
-                        <img src={produtoIcon} /> 
-                        <h1>Produto </h1> 
+                        <img src={funcionarioIcon} /> 
+                        <h1>Funcionários</h1> 
                     </div>
                     
                     <div className='grid text-center bg-[#004f94]'>
-                        <a href="http://localhost:5173/produto/buscar" 
+                        <a href="http://localhost:5173/funcionario" 
                         className='hover:bg-[#00427c] border-4 border-transparent rounded-[5px] transition-all duration-300 pt-3.5'>
-                        Buscar
+                        Listar
                         </a>
 
-                        <a href="http://localhost:5173/produto/revisar" 
+                        <a href="http://localhost:5173/funcionario/cadastrar" 
                         className='hover:bg-[#00427c] border-4 border-transparent rounded-[5px] transition-all duration-300 pt-3.5'>
-                        Revisar
+                        Cadastrar
                         </a>
 
                     </div>
@@ -94,7 +98,7 @@ function NavBar () {
                 <li onClick={handleEntregaClick}> <img src={entregaIcon} /> Detalhes Entrega</li>
                 <li onClick={handleTicketClick}> <img src={ticketIcon} /> Tickets</li>
                 <li onClick={handleEntregadorClick}> <img src={entregadorIcon} /> Aceitar Entregador</li>
-                <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon} /> Cadastrar Funcionário</li>
+                <li onClick={handleProdBuscarClick}> <img src={produtoIcon} /> Buscar Produto</li>
                 <li onClick={handlePedidoClick}> <img src={pedidoIcon} /> Fazer Pedido Interno</li>
                 <li onClick={handleCdClick}> <img src={cdIcon} /> Detalhes Centro de Distribuição</li>
                 <li onClick={handleCdCadastrarClick}> <img src={cdCadastrarIcon} /> Cadastrar Centro de Distribuição</li>

@@ -24,6 +24,10 @@ function Home() {
     }
 
     const handleFuncionarioClick = () => {
+        navigate('/funcionario');
+    }
+
+    const handleFunciCadastrarClick = () => {
         navigate('/funcionario/cadastrar');
     }
 
@@ -118,8 +122,8 @@ function Home() {
             </div>
 
             <div onClick={handleFuncionarioClick}>
-                <img src={funcionarioIcon} alt="funcionario" />
-                <h1>Cadastrar Funcionário</h1>
+                <img src={produtoIcon} alt="funcionario" />
+                <h1>Buscar Produto</h1>
             </div>
 
             <div onClick={handlePedidoClick}>
@@ -128,13 +132,13 @@ function Home() {
             </div>
 
             <div className='mb-30 relative group'>
-                <img src={produtoIcon} alt="produtos" />
-                <h1>Produtos</h1>
+                <img src={funcionarioIcon} alt="produtos" />
+                <h1>Funcionários</h1>
 
                 <div id='tooltip' 
                     className='w-[120px] p-2 cursor-pointer text-[20px] grid text-center absolute right-[-70px] bottom-20 bg-white border-2 border-transparent rounded-[10px] scale-0 group-hover:scale-100'>
-                    <span onClick={handleProdRevisarClick} className='hover:bg-[#e2e2e2]'>Revisar</span>
-                    <span onClick={handleProdBuscarClick} className='hover:bg-[#e2e2e2]'>Buscar</span>
+                    <span onClick={handleFuncionarioClick} className='hover:bg-[#e2e2e2]'>Listar</span>
+                    <span onClick={handleFunciCadastrarClick} className='hover:bg-[#e2e2e2]'>Cadastrar</span>
                 </div>
             </div>
         </div>
