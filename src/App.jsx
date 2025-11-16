@@ -12,6 +12,7 @@ import CadastrarCd from "./pages/CadastrarCd"
 import PedidoInterno from "./pages/PedidoInterno"
 import DashBoard from "./pages/DashBoard"
 import BuscarProduto from "./pages/BuscarProduto"
+import EditarFuncionario from "./pages/EditarFuncionario"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/dashBoard" element={<DashBoard />} />
           <Route path="/funcionario" element={<Funcionarios />} />
           <Route path="/funcionario/cadastrar" element={<CadastrarFuncionario />} />
+          <Route path="/funcionario/editar" element={<EditarFuncionario />} />
           <Route path="/centroDistribuicao" element={<CentroDistribuicao />} />
           <Route path="/centroDistribuicao/cadastrar" element={<CadastrarCd />} />
           <Route path="/fazerPedidoInterno" element={<PedidoInterno />} />

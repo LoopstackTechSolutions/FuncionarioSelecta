@@ -73,6 +73,37 @@ export const useFuncionarios = () => {
         }
     }
 
+    const editarFuncionario = async (id, dadosAtualizado) => {
+        try {
+            setLoading(true);
+            setError('');
+
+            const response = await api.put(
+                `/selectaAPI/Employee/editar-funcionario/${id}`,
+                dadosAtualizado
+            );
+
+            setFuncionarios(prev =>
+                prev.map(func =>
+                    func.idFuncionario === id ? {...func, ...response.data} : func
+                )
+            );
+
+            return response.data;
+        }
+
+        catch (err) {
+            const mensagemErro = err.response?.data?.message || err.message || 'Erro ao editar funcionário';
+
+            setError(mensagemErro);
+            throw new Error(mensagemErro);
+        }
+
+        finally {
+            setLoading(false);
+        }
+    }
+
     useEffect(() => {
         fetchFuncionarios();
     }, []);
@@ -83,6 +114,7 @@ export const useFuncionarios = () => {
         error,
         refetch: fetchFuncionarios,
         cadastrarFuncionario,
-        deleteFuncionario
+        deleteFuncionario,
+        editarFuncionario
     };
 };
