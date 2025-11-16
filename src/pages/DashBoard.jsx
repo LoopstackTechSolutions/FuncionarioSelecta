@@ -1,7 +1,40 @@
 import Header from "../components/Header"
 import NavBar from "../components/NavBar"
+import GraficoPizza from "../components/PizzaChart"
+import GraficoBarras from "../components/BarChart"
+import GraficoLinha from "../components/LineChart"
 
 function DashBoard() {
+
+    const dadosPizza = [
+        {nome: 'Técnologia', valor:70},
+        {nome: 'Moda', valor:50},
+        {nome: 'Esporte', valor:35},
+        {nome: 'Eletrodomésticos', valor:25},
+        {nome: 'Outro', valor:10}
+    ]
+
+    const dadosBarras = [
+        {nome: 'Celular', valor:1500},
+        {nome: 'Maquiagem', valor:2000},
+        {nome: 'Sapato', valor: 1800},
+        {nome: 'Outro', valor:5},
+        {nome: 'Eletrodomésticos', valor:25}
+    ]
+
+    const dadosLinhas = [
+        { nome: "Jan", valor: 3500 },
+        { nome: "Fev", valor: 4800 },
+        { nome: "Mar", valor: 4000 },
+        { nome: "Abr", valor: 4100 },
+        { nome: "Mai", valor: 5009 },
+        { nome: "Jun", valor: 3900 },
+        { nome: "Jul", valor: 3800 },
+        { nome: "Ago", valor: 5100 },
+        { nome: "Set", valor: 4500 },
+        { nome: "Out", valor: 5000 }
+    ]
+
     return (
         <>
         <Header />
@@ -29,16 +62,19 @@ function DashBoard() {
             </section>
 
             <section id="graficos" className="flex gap-8 mt-32">
-                <div className=" h-[493px] w-[918px] bg-white border border-transparent rounded-[20px] pt-6">
+                <div id="grafico" className=" h-[493px] w-[918px] bg-white border border-transparent rounded-[20px] pt-6">
                     <h2 className="text-[#005FB3] text-3xl">Produtos mais vendidos</h2>
+                    <GraficoBarras dados={dadosBarras} />
                 </div>
-                <div className="w-[408px] bg-white border border-transparent rounded-[20px] pt-6">
-                    <h2 className="text-[#005FB3] text-3xl">Vendas por categoria de produto</h2>
+                <div id="grafico" className="w-[408px] bg-white border border-transparent rounded-[20px] pt-6">
+                    <h2 className="text-[#005FB3] text-3xl mb-6">Vendas por categoria de produto</h2>
+                    <GraficoPizza dados={dadosPizza} />
                 </div>
             </section>
 
             <div id="grafico" className="w-full bg-white h-[493px]  mt-16 border border-transparent rounded-[20px] pt-6">
-                <h2 className="text-[#005FB3] text-3xl">Vendas Mensais</h2>
+                <h2 className="text-[#005FB3] text-3xl mb-10">Vendas Mensais</h2>
+                <GraficoLinha dados={dadosLinhas} />
             </div>
         </div>
 
