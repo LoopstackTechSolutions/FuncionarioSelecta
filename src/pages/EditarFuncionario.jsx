@@ -11,11 +11,11 @@ export default function EditarFuncionario({funcionario}) {
     const { editarFuncionario, loading } = useFuncionarios();
 
     const [formData, setFormData] = useState({
-        nome: funcionario.Nome,
-        email: funcionario.Email,
-        senha: funcionario.Senha,
-        cpf: funcionario.Cpf,
-        nivelAcesso: funcionario.NivelAcesso
+        nome: funcionario.nome,
+        email: funcionario.email,
+        senha: funcionario.senha,
+        cpf: funcionario.cpf,
+        nivelAcesso: funcionario.nivelAcesso
     });
 
     const handleChange = (e) => {

@@ -1,13 +1,11 @@
 import { useFuncionarios } from "../hook/useFuncionario";
 
 function Table({ml, children, headerItens = []}) {
-
-    const {funcionarios, loading, error, refetch} = useFuncionarios();
-
-    const header = [];
-    headerItens.forEach((iten) => {
-        header.push(<th>{iten}</th>)
-    })
+    
+    const header = headerItens.map((item, index) => (
+        <th key={index}>{item}</th>
+    ));
+    
 
 
     return (

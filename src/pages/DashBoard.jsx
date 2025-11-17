@@ -18,8 +18,10 @@ function DashBoard() {
         {nome: 'Celular', valor:1500},
         {nome: 'Maquiagem', valor:2000},
         {nome: 'Sapato', valor: 1800},
-        {nome: 'Outro', valor:5},
-        {nome: 'Eletrodomésticos', valor:25}
+        {nome: 'Eletrodomésticos', valor:1600},
+        {nome: 'Camiseta', valor:1400},
+        {nome: 'Utensíios de Cozinha', valor:2100},
+        {nome: 'Outro', valor:5}
     ]
 
     const dadosLinhas = [
@@ -62,8 +64,8 @@ function DashBoard() {
             </section>
 
             <section id="graficos" className="flex gap-8 mt-32">
-                <div id="grafico" className=" h-[493px] w-[918px] bg-white border border-transparent rounded-[20px] pt-6">
-                    <h2 className="text-[#005FB3] text-3xl">Produtos mais vendidos</h2>
+                <div id="grafico" className=" h-[493px] w-[918px] relative z-[0] bg-white border border-transparent rounded-[20px] pt-6">
+                    <h2 className="text-[#005FB3] text-3xl mb-1">Produtos mais vendidos</h2>
                     <GraficoBarras dados={dadosBarras} />
                 </div>
                 <div id="grafico" className="w-[408px] bg-white border border-transparent rounded-[20px] pt-6">

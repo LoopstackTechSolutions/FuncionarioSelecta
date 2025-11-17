@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Header from "../components/Header"
 import NavBar from "../components/NavBar"
@@ -5,6 +6,7 @@ import Table from "../components/Table"
 import { useFuncionarios } from "../hook/useFuncionario"
 
 function Funcionario() {
+    const navigate = useNavigate();
 
     const {funcionarios, loading, error, refetch, deleteFuncionario} = useFuncionarios();
 
@@ -39,7 +41,9 @@ function Funcionario() {
                         <td>{funcionario.nivelAcesso}</td>
                         <td>
                             <div className="flex justify-center items-center gap-1.5 text-white mb-2.5 mt-2.5">
-                                <button className="bg-[#0074D9] border-4 border-[#0074D9] rounded-[5px] hover:bg-[#0056a1] hover:border-[#0056a1] transition-all duration-300 cursor-pointer">Editar</button>
+                                <button 
+                                onClick={() => navigate(`/funcionario/editar/${funcionario.idFuncionario}`)}
+                                className="bg-[#0074D9] border-4 border-[#0074D9] rounded-[5px] hover:bg-[#0056a1] hover:border-[#0056a1] transition-all duration-300 cursor-pointer">Editar</button>
                                 <span className="text-gray-400">|</span>
                                 <button 
                                 onClick={() => handleDelete(funcionario.idFuncionario)}

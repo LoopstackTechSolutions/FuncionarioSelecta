@@ -25,7 +25,7 @@ function App() {
           <Route path="/dashBoard" element={<DashBoard />} />
           <Route path="/funcionario" element={<Funcionarios />} />
           <Route path="/funcionario/cadastrar" element={<CadastrarFuncionario />} />
-          <Route path="/funcionario/editar" element={<EditarFuncionario />} />
+          <Route path="/funcionario/editar/:id" element={<EditarFuncionario />} />
           <Route path="/centroDistribuicao" element={<CentroDistribuicao />} />
           <Route path="/centroDistribuicao/cadastrar" element={<CadastrarCd />} />
           <Route path="/fazerPedidoInterno" element={<PedidoInterno />} />

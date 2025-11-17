@@ -70,7 +70,7 @@ function NavBar () {
     }
     return (
         
-        <div id='navbar' className='mr-28 text-[20px] h-full fixed top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[110px] overflow-hidden'>
+        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[110px] overflow-hidden'>
             <ul  className='flex flex-col gap-8 cursor-pointer'>
                 <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
                 <li onClick={handleDashBoardClick}> <img src={dashIcon}  /> DashBoard</li>
