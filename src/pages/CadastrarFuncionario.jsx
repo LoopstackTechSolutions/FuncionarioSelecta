@@ -63,9 +63,9 @@ function CadastrarFuncionario() {
             onChange={(e) => setNovoFuncionario({...novoFuncionario, NivelAcesso: e.target.value})}
             className="border-2 h-9 mb-20 border-[#7C7C7C] rounded-[5px] w-full focus:border-[#0074D9] outline-0 transition-all duration-300">
                     <option className="text-[#3d3d3d]" value="">(Selecione)</option>
-                    <option className="text-[#3d3d3d]" value="gerente">Gerente</option>
-                    <option className="text-[#3d3d3d]" value="escritorio">Escritório</option>
-                    <option className="text-[#3d3d3d]" value="logistica">Logística</option>
+                    <option className="text-[#3d3d3d]" value="gerente">Comum</option>
+                    <option className="text-[#3d3d3d]" value="escritorio">Administrador</option>
+                    <option className="text-[#3d3d3d]" value="logistica">Gerente</option>
             </select>
 
             <div className="text-center">

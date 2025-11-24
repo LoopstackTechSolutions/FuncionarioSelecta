@@ -9,7 +9,7 @@ export default defineConfig({
     server: {
       proxy: {
         '/api': {
-          target: 'https://selectaapi-ehg0gcd6cmapggeq.brazilsouth-01.azurewebsites.net/',
+          target: 'https://selectaapi2-bwe5hxd9gth5cdau.brazilsouth-01.azurewebsites.net/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
           secure: false,

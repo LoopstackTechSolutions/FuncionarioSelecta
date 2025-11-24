@@ -13,7 +13,7 @@ export const useFuncionarios = () => {
             setLoading(true);
             setError('');
 
-            const response = await api.get('/selectaAPI/Employee/list-employees');
+            const response = await api.get('/selectaAPI/Employee/funcionario/listar');
             setFuncionarios(response.data);
         }
 
@@ -32,7 +32,7 @@ export const useFuncionarios = () => {
             setLoading(true);
             setError('');
 
-            const response = await api.post('/selectaAPI/Employee/employee-register', dadosFuncionario);
+            const response = await api.post('/selectaAPI/Employee/cadastrar-funcionario', dadosFuncionario);
 
             setFuncionarios(prev => [...prev, response.data]);
             return response.data;
@@ -54,7 +54,7 @@ export const useFuncionarios = () => {
             setLoading(true);
             setError('');
 
-            await api.delete(`/selectaAPI/Employee/employee-remove/${id}`);
+            await api.delete(`/selectaAPI/Employee/funcionario/remover/${id}`);
             setFuncionarios(prev => prev.filter(f => f.id != id));
 
             return true;
