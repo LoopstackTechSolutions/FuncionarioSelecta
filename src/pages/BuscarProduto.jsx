@@ -2,8 +2,16 @@ import Header from "../components/Header"
 import NavBar from "../components/NavBar"
 import Table from "../components/Table"
 import lupa from "../assets/img/lupa.png";
+import { useProdutos } from "../hook/useProduto";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function BuscarProduto() {
+    const navigate = useNavigate();
+
+    const {produtos, loading, error, refetch, inputValue, setInputValue} = useProdutos();
+    
+    const handleChange = (event) => {setInputValue(event.target.value);}
 
     return(
         <>
@@ -13,11 +21,32 @@ function BuscarProduto() {
 
         <div id="buscar" className="ml-80 flex items-center gap-2 border-2 border-[#7C7C7C] rounded-[50px] h-[50px] w-[50px] text-[65px] bg-white mb-8 hover:w-[523px] transition-all duration-500 cursor-pointer">
             <img src={lupa} className="w-[39px] h-[39px] ml-1" />
-            <input type="text" id="buscarInput" placeholder="Buscar..." className="w-full focus:border-0 outline-0" />
+            <input type="text" id="buscarInput" placeholder="Buscar..." className="w-full focus:border-0 outline-0" 
+            value={inputValue}
+            onChange={handleChange}
+             />
         </div>
         
 
-        <Table ml="ml-[320px]" headerItens={['Id','Vendedor','Nome','Descrição','Quantidade','Condição','Preço','Peso','Nota']} />
+        <Table ml="ml-[320px]" headerItens={['ID','Nome','Quantidade','Preço Unitário','Condição','Peso','Status','Nota','Descrição','Vendedor', 'Id Vendedor']}>
+
+        {produtos.map((produto) => (
+            <tr key={produto.idProduto}>
+                <td>{produto.idProduto}</td>
+                <td>{produto.nome}</td>
+                <td>{produto.quantidade}</td>
+                <td>{produto.precoUnitario}</td>
+                <td>{produto.condicao}</td>
+                <td>{produto.peso}</td>
+                <td>{produto.status}</td>
+                <td>{produto.nota}</td>
+                <td>{produto.descricao}</td>
+                <td>{produto.vendedor}</td>
+                <td>{produto.idVendedor}</td>
+            </tr>
+        ))}
+
+        </Table>
 
         <div id='fundoGradient'>
             <div className='w-[938px] h-[875px] top-[-300px] left-[-300px]'></div>

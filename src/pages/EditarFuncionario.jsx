@@ -1,22 +1,41 @@
+import { useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Form from "../components/Form";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import TextBox from "../components/TextBox";
 import { useFuncionarios } from "../hook/useFuncionario";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function EditarFuncionario({funcionario}) {
+export default function EditarFuncionario() {
 
-    const { editarFuncionario, loading } = useFuncionarios();
+    const {id} = useParams();
+    const { funcionarios, editarFuncionario, loading } = useFuncionarios();
+
+    const funcionario = funcionarios.find(f => f.idFuncionario == id);
 
     const [formData, setFormData] = useState({
-        nome: funcionario.nome,
-        email: funcionario.email,
-        senha: funcionario.senha,
-        cpf: funcionario.cpf,
-        nivelAcesso: funcionario.nivelAcesso
+        nome:'',
+        email:'',
+        senha:'',
+        cpf:'',
+        nivelAcesso:''
     });
+
+    useEffect(() => {
+        if (funcionario) {
+            setFormData({
+                nome: funcionario?.nome || '',
+                email: funcionario?.email || '',
+                senha: funcionario?.senha || '',
+                cpf: funcionario?.cpf || '',
+                nivelAcesso: funcionario?.nivelAcesso || ''
+            });
+        }
+            
+    }, [funcionario]);
+
+  
 
     const handleChange = (e) => {
         setFormData({
@@ -30,7 +49,7 @@ export default function EditarFuncionario({funcionario}) {
 
         try
         {
-            await editarFuncionario(funcionario.id, formData);
+            await editarFuncionario(funcionario.idFuncionario, formData);
             alert("Funcionário editado com sucesso!");
         }
 
@@ -47,30 +66,31 @@ export default function EditarFuncionario({funcionario}) {
 
         <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[790px]">Editar Funcionário</h1>
 
-        <Form onsubmit={handleSubmit} margin="50px 500px">
+        <Form onSubmit={handleSubmit} margin="50px 500px">
 
             <label>Nome</label>
-            <TextBox type="text" value={formData.nome} 
+            <TextBox type="text" value={formData.nome} name="nome"
             onchange={handleChange} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o nome" />
 
             <label>E-mail</label>
-            <TextBox type="text" value={formData.email} 
+            <TextBox type="text" value={formData.email} name="email"
             onchange={handleChange} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o e-mail" />
 
             <label>Senha</label>
-            <TextBox type="text" value={formData.senha} 
+            <TextBox type="text" value={formData.senha} name="senha"
             onchange={handleChange}
             color="cinza" width="100%" mb="50px" placeholder="Digite a senha" />
 
             <label>CPF</label>
-            <TextBox type="text" value={formData.cpf}
+            <TextBox type="text" value={formData.cpf} name="cpf"
             onchange={handleChange}
             color="cinza" width="100%" mb="50px" placeholder="Digite o CPF" />
 
             <label>Nível de Acesso</label>
             <select value={formData.nivelAcesso}
+            name="nivelAcesso"
             onChange={handleChange}
             className="border-2 h-9 mb-20 border-[#7C7C7C] rounded-[5px] w-full focus:border-[#0074D9] outline-0 transition-all duration-300">
                     <option className="text-[#3d3d3d]" value="">(Selecione)</option>
@@ -80,7 +100,7 @@ export default function EditarFuncionario({funcionario}) {
             </select>
 
             <div className="text-center">
-                <Button submit="true" width="50%" height="53px" modo="azul" texto={loading ? 'Salvando' : 'Salvar alterações'} />
+                <button type="submit" className="w-[50%] h-[53px] border-2 ">{loading ? 'Salvando' : 'Salvar alterações'}</button>
             </div>
             
         </Form>
