@@ -5,6 +5,8 @@ import dashIcon from '../assets/img/grafico.svg?react';
 import produtoIcon from '../assets/img/produto.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
 import pedidoIcon from '../assets/img/pedido.svg?react';
+import clienteIcon from '../assets/img/clienteIcon.png';
+import promoIcon from '../assets/img/promotionIcon.png';
 import logo from '../assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,9 +44,9 @@ function NavBar () {
 
     return (
         
-        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 w-[110px] overflow-hidden hover:w-[350px]'>
+        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 w-[110px] overflow-hidden hover:w-[350px] group'>
             <ul  className='flex flex-col gap-15 cursor-pointer'>
-                <img src={logo} className='w-[200px] imgLogoNavbar pl-1 mb-5' />
+                <img src={logo} className='w-[200px] imgLogoNavbar pl-1 mb-5 group-hover:pl-15 transition-all duration-300' />
 
                 <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
 
@@ -56,8 +58,9 @@ function NavBar () {
 
                 <li onClick={handleProdBuscarClick}> <img src={produtoIcon} /> Buscar Produto</li>
 
-                <li onClick={handlePromocaoClick}> <img src="" alt="" /> Criar promoção</li>
-                <li onClick={handleClientesClick}> <img src="" alt="" /> Listar Clientes</li>
+                <li onClick={handlePromocaoClick}> <img src={promoIcon} /> Criar promoção</li>
+
+                <li onClick={handleClientesClick}> <img src={clienteIcon} /> Listar Clientes</li>
             </ul>
         </div>
     )

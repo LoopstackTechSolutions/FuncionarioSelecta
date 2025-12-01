@@ -19,12 +19,14 @@ export const useLogin = () => {
                 senha: senha
             });
 
-            const {token, nome} = response.data;
-            console.log(response.data);
+            const {token, nome, nivelAcesso} = response.data;
+            
 
             setToken(token);
             localStorage.setItem('token', token);
             localStorage.setItem('nome', nome);
+            localStorage.setItem('nivelAcesso', nivelAcesso);
+            console.log(response.data);
 
             return {token};
         }
