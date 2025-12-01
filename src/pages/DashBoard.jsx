@@ -21,7 +21,7 @@ function DashBoard() {
         {nome: 'Eletrodomésticos', valor:1600},
         {nome: 'Camiseta', valor:1400},
         {nome: 'Utensíios de Cozinha', valor:2100},
-        {nome: 'Outro', valor:5}
+        {nome: 'Outro', valor:1000}
     ]
 
     const dadosLinhas = [

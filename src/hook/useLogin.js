@@ -4,8 +4,50 @@ import api from '../services/Api';
 export const useLogin = () => {
 
     const [usuario, setUsuario] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [token, setToken] = useState(localStorage.getItem('token') || '');
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+
+    const login = async(email, senha) => {
+        try
+        {
+            setLoading(true);
+            setError('');
+
+            const response = await api.post('/selectaAPI/Login/login-funcionario', {
+                email: email,
+                senha: senha
+            });
+
+            const {token, nome} = response.data;
+            console.log(response.data);
+
+            setToken(token);
+            localStorage.setItem('token', token);
+            localStorage.setItem('nome', nome);
+
+            return {token};
+        }
+
+        catch (err)
+        {
+            const mensagem = err.response?.data?.message || "E-mail ou senha incorretos, por favor digite novamente.";
+
+            setError(mensagem);
+            throw new Error(mensagem);
+        }
+
+        finally
+        {
+            setLoading(false);
+        }
+    };
+
+    const logout = () => {
+        setUsuario(null);
+        setToken('');
+        localStorage.removeItem('token');
+    }
 
     const cadastrarUsuario = async(dadosUsuario) => {
         try
@@ -13,7 +55,7 @@ export const useLogin = () => {
             setLoading(true);
             setError('');
 
-            const response = await api.post('endpoint', dadosUsuario);
+            const response = await api.post('/selectaAPI/Login/login-funcionario', dadosUsuario);
 
             setUsuario(prev => [...prev, response.data]);
             return response.data;
@@ -33,9 +75,12 @@ export const useLogin = () => {
     };
 
     return {
-        usuario: usuario,
+        usuario,
+        token,
         loading,
         error,
+        login,
+        logout,
         refetch: cadastrarUsuario
     }
 }

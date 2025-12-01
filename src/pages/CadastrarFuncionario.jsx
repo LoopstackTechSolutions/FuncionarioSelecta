@@ -40,22 +40,22 @@ function CadastrarFuncionario() {
 
             <label>Nome</label>
             <TextBox type="text" value={novoFuncionario.Nome} 
-            onchange={(e) => setNovoFuncionario({...novoFuncionario, Nome: e.target.value})} 
+            onChange={(e) => setNovoFuncionario({...novoFuncionario, Nome: e.target.value})} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o nome" />
 
             <label>E-mail</label>
             <TextBox type="text" value={novoFuncionario.Email} 
-            onchange={(e) => setNovoFuncionario({...novoFuncionario, Email: e.target.value})} 
+            onChange={(e) => setNovoFuncionario({...novoFuncionario, Email: e.target.value})} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o e-mail" />
 
             <label>Senha</label>
             <TextBox type="text" value={novoFuncionario.Senha} 
-            onchange={(e) => setNovoFuncionario({...novoFuncionario, Senha: e.target.value})}
+            onChange={(e) => setNovoFuncionario({...novoFuncionario, Senha: e.target.value})}
             color="cinza" width="100%" mb="50px" placeholder="Digite a senha" />
 
             <label>CPF</label>
             <TextBox type="text" value={novoFuncionario.Cpf}
-            onchange={(e) => setNovoFuncionario({...novoFuncionario, Cpf: e.target.value})}
+            onChange={(e) => setNovoFuncionario({...novoFuncionario, Cpf: e.target.value})}
             color="cinza" width="100%" mb="50px" placeholder="Digite o CPF" />
 
             <label>Nível de Acesso</label>

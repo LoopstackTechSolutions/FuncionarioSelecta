@@ -1,12 +1,13 @@
 import saida from '../assets/img/sair.svg?react';
 import { useNavigate } from 'react-router-dom';
 
-function Button ({texto="Cadastrar", submit = true, modo, width, height = "auto"}) {
+function Button ({texto="Cadastrar", submit = true, modo, width, height = "auto", disabled}) {
     
     const navigate = useNavigate();
 
     const handleLoginClick = () => {
         navigate('/login');
+        localStorage.removeItem('token');
     }
 
     if (submit === true) {
@@ -19,6 +20,7 @@ function Button ({texto="Cadastrar", submit = true, modo, width, height = "auto"
         return (
             <input type="submit" value={texto} className={`text-3xl cursor-pointer border border-transparent rounded-[5px] ${modo}`} 
             style={{width: width, height: height}}
+            disabled={disabled}
         />
         )
     }

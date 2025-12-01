@@ -3,17 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
 import perfil from '../assets/img/perfil.svg?react';
 import Button from '../components/Button';
-
 import dashIcon from '../assets/img/grafico.svg?react';
 import produtoIcon from '../assets/img/produto.svg?react';
-import entregaIcon from '../assets/img/entrega.svg?react';
-import ticketIcon from '../assets/img/ticket.svg?react';
-import entregadorIcon from '../assets/img/entregador.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
-import cdIcon from '../assets/img/cd.svg?react';
-import cdCadastrarIcon from '../assets/img/cadastrarCd.svg?react';
-import empresaIcon from '../assets/img/empresa.svg?react';
 import pedido from '../assets/img/pedido.svg?react';
+
 
 function Home() {
 
@@ -31,40 +25,16 @@ function Home() {
         navigate('/funcionario/cadastrar');
     }
 
-    const handleEntregadorClick = () => {
-        navigate('/entregadorAceitar');
-    }
-
-    const handleEntregaClick = () => {
-        navigate('/entregaDetalhes');
-    }
-
-    const handleEmpresaParClick = () => {
-        navigate('/empresaParceira');
-    }
-
-    const handleCdClick = () => {
-        navigate('/centroDistribuicao');
-    }
-
-    const handleCdCadastrarClick = () => {
-        navigate('/centroDistribuicao/cadastrar');
-    }
-
-    const handlePedidoClick = () => {
-        navigate('/fazerPedidoInterno');
-    }
-
-    const handleTicketClick = () => {
-        navigate('/tickets');
+    const handleClientesClick = () => {
+        navigate('/clientes');
     }
 
     const handleProdBuscarClick = () => {
         navigate('/produto/buscar');
     }
 
-    const handleProdRevisarClick = () => {
-        navigate('/produto/revisar');
+    const handlePromocaoClick = () => {
+        navigate('/promocao');
     }
 
     return (
@@ -83,69 +53,43 @@ function Home() {
             </div>
         </header>
 
-        <h1 className='text-[40px] text-[#005FB3] text-center m-50'>Olá, Seja Bem-Vindo(a) Usuário!</h1>
+        <h1 id='tituloHome' className='text-[40px] text-[#005FB3] text-center m-50'>Olá, Seja Bem-Vindo(a) Usuário!</h1>
 
-        <div id='menuHome' className='text-[20px] grid grid-cols-3 w-[80%] m-auto gap-[170px]'>
+        <div id='menuHome' className='text-[20px] grid grid-cols-2 w-[90%] m-auto gap-[170px]'>
             <div onClick={handleDashBoardClick}>
                 <img src={dashIcon} alt="dashboard" />
                 <h1>DashBoard</h1>
             </div>
 
-            <div onClick={handleEntregaClick}>
-                <img src={entregaIcon} alt="entregas" />
-                <h1>Detalhes Entregas</h1>
+            <div onClick={handleFunciCadastrarClick} className='delay-1000'>
+                <img src={pedido} />
+                <h1>Cadastrar Funcionário</h1>
             </div>
 
-            <div onClick={handleTicketClick}>
-                <img src={ticketIcon} alt="ticket" />
-                <h1>Tickets</h1>
+            <div onClick={handleFuncionarioClick} className='delay-200'>
+                <img src={funcionarioIcon} />
+                <h1>Listar Funcionários</h1>
             </div>
 
-            <div onClick={handleEntregadorClick}>
-                <img src={entregadorIcon} alt="entregador" />
-                <h1>Aceitar Entregador</h1>
+            <div onClick={handleProdBuscarClick} className='delay-300'>
+                <img src={produtoIcon} />
+                <h1>Buscar Produtos</h1>
             </div>
 
-            <div onClick={handleEmpresaParClick}>
-                <img src={empresaIcon} alt="Empresa parceira" />
-                <h1>Aceitar Empresa Parceira</h1>
+            <div onClick={handleClientesClick} className='delay-400'>
+                <img src="" alt="" />
+                <h1>Criar Promoção</h1>
             </div>
 
-            <div onClick={handleCdClick}>
-                <img src={cdIcon} alt="cd" />
-                <h1>Detalhes Centro de Distribuição</h1>
-            </div>
-
-            <div onClick={handleCdCadastrarClick}>
-                <img src={cdCadastrarIcon} alt="cdCadastrar" />
-                <h1>Cadastrar Centro de Distribuição</h1>
-            </div>
-
-            <div onClick={handleFuncionarioClick}>
-                <img src={produtoIcon} alt="funcionario" />
-                <h1>Buscar Produto</h1>
-            </div>
-
-            <div onClick={handlePedidoClick}>
-                <img src={pedido} alt="pedido interno" />
-                <h1>Fazer Pedido Interno</h1>
-            </div>
-
-            <div className='mb-30 relative group'>
-                <img src={funcionarioIcon} alt="produtos" />
-                <h1>Funcionários</h1>
-
-                <div id='tooltip' 
-                    className='w-[120px] p-2 cursor-pointer text-[20px] grid text-center absolute right-[-70px] bottom-20 bg-white border-2 border-transparent rounded-[10px] scale-0 group-hover:scale-100'>
-                    <span onClick={handleFuncionarioClick} className='hover:bg-[#e2e2e2]'>Listar</span>
-                    <span onClick={handleFunciCadastrarClick} className='hover:bg-[#e2e2e2]'>Cadastrar</span>
-                </div>
+            <div onClick={handlePromocaoClick} className='delay-500'>
+                <img src="" alt="" />
+                <h1>Listar Clientes</h1>
             </div>
         </div>
 
         <div id='fundoGradient'>
             <div className='w-[938px] h-[875px] top-[-300px] left-[-300px]'></div>
-            <div className='w-[838px] h-[775px] bottom-[-700px] right-0'></div>
+            <div className='w-[838px] h-[775px] bottom-0 right-0'></div>
         </div>
         </>
     )

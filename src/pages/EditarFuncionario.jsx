@@ -70,22 +70,22 @@ export default function EditarFuncionario() {
 
             <label>Nome</label>
             <TextBox type="text" value={formData.nome} name="nome"
-            onchange={handleChange} 
+            onChange={handleChange} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o nome" />
 
             <label>E-mail</label>
             <TextBox type="text" value={formData.email} name="email"
-            onchange={handleChange} 
+            onChange={handleChange} 
             color="cinza" width="100%" mb="50px" placeholder="Digite o e-mail" />
 
             <label>Senha</label>
             <TextBox type="text" value={formData.senha} name="senha"
-            onchange={handleChange}
+            onChange={handleChange}
             color="cinza" width="100%" mb="50px" placeholder="Digite a senha" />
 
             <label>CPF</label>
             <TextBox type="text" value={formData.cpf} name="cpf"
-            onchange={handleChange}
+            onChange={handleChange}
             color="cinza" width="100%" mb="50px" placeholder="Digite o CPF" />
 
             <label>Nível de Acesso</label>

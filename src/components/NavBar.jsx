@@ -3,14 +3,9 @@ import React from 'react';
 import homeIcon from '../assets/img/home.svg?react';
 import dashIcon from '../assets/img/grafico.svg?react';
 import produtoIcon from '../assets/img/produto.svg?react';
-import entregaIcon from '../assets/img/entrega.svg?react';
-import ticketIcon from '../assets/img/ticket.svg?react';
-import entregadorIcon from '../assets/img/entregador.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
-import cdIcon from '../assets/img/cd.svg?react';
-import cdCadastrarIcon from '../assets/img/cadastrarCd.svg?react';
-import empresaIcon from '../assets/img/empresa.svg?react';
 import pedidoIcon from '../assets/img/pedido.svg?react';
+import logo from '../assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 function NavBar () {
@@ -33,76 +28,36 @@ function NavBar () {
         navigate('/funcionario/cadastrar');
     }
 
-    const handleEntregadorClick = () => {
-        navigate('/entregadorAceitar');
-    }
-
-    const handleEntregaClick = () => {
-        navigate('/entregaDetalhes');
-    }
-
-    const handleEmpresaParClick = () => {
-        navigate('/empresaParceira');
-    }
-
-    const handleCdClick = () => {
-        navigate('/centroDistribuicao');
-    }
-
-    const handleCdCadastrarClick = () => {
-        navigate('/CDcadastrar');
-    }
-
-    const handlePedidoClick = () => {
-        navigate('/fazerPedidoInterno');
-    }
-
-    const handleTicketClick = () => {
-        navigate('/tickets');
-    }
-
     const handleProdBuscarClick = () => {
         navigate('/produto/buscar');
     }
 
-    const handleProdRevisarClick = () => {
-        navigate('/produto/revisar');
+    const handlePromocaoClick = () => {
+        navigate('/promocao');
     }
+
+    const handleClientesClick = () => {
+        navigate('/clientes');
+    }
+
     return (
         
-        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 max-w-[110px] overflow-hidden'>
-            <ul  className='flex flex-col gap-8 cursor-pointer'>
+        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 w-[110px] overflow-hidden hover:w-[350px]'>
+            <ul  className='flex flex-col gap-15 cursor-pointer'>
+                <img src={logo} className='w-[200px] imgLogoNavbar pl-1 mb-5' />
+
                 <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
+
                 <li onClick={handleDashBoardClick}> <img src={dashIcon}  /> DashBoard</li>
-                <div className='grid h-[50px] overflow-hidden hover:h-[250px] transition-all duration-300 mr-2 w-full'> 
-                    
-                    <div className='flex items-center justify-items-start w-full'>
-                        <img src={funcionarioIcon} /> 
-                        <h1>Funcionários</h1> 
-                    </div>
-                    
-                    <div className='grid text-center bg-[#004f94]'>
-                        <a href="http://localhost:5173/funcionario" 
-                        className='hover:bg-[#00427c] border-4 border-transparent rounded-[5px] transition-all duration-300 pt-3.5'>
-                        Listar
-                        </a>
 
-                        <a href="http://localhost:5173/funcionario/cadastrar" 
-                        className='hover:bg-[#00427c] border-4 border-transparent rounded-[5px] transition-all duration-300 pt-3.5'>
-                        Cadastrar
-                        </a>
+                <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon}  /> Funcionários </li>
 
-                    </div>
-                    
-                </div>
-                <li onClick={handleEntregaClick}> <img src={entregaIcon} /> Detalhes Entrega</li>
-                <li onClick={handleTicketClick}> <img src={ticketIcon} /> Tickets</li>
-                <li onClick={handleEntregadorClick}> <img src={entregadorIcon} /> Aceitar Entregador</li>
+                <li onClick={handleFunciCadastrarClick}> <img src={pedidoIcon}  /> Cadastrar Funcionário </li>
+
                 <li onClick={handleProdBuscarClick}> <img src={produtoIcon} /> Buscar Produto</li>
-                <li onClick={handlePedidoClick}> <img src={pedidoIcon} /> Fazer Pedido Interno</li>
-                <li onClick={handleCdClick}> <img src={cdIcon} /> Detalhes Centro de Distribuição</li>
-                <li onClick={handleCdCadastrarClick}> <img src={cdCadastrarIcon} /> Cadastrar Centro de Distribuição</li>
-                <li onClick={handleEmpresaParClick}> <img src={empresaIcon} /> Aceitar Empresa Parceira</li>
+
+                <li onClick={handlePromocaoClick}> <img src="" alt="" /> Criar promoção</li>
+                <li onClick={handleClientesClick}> <img src="" alt="" /> Listar Clientes</li>
             </ul>
         </div>
     )
