@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import dashIcon from '../assets/img/grafico.svg?react';
 import produtoIcon from '../assets/img/produto.svg?react';
 import funcionarioIcon from '../assets/img/funcionario.svg?react';
-import pedido from '../assets/img/pedido.svg?react';
+import cadaFuncImg from '../assets/img/pedido.svg?react';
 import clienteIcon from '../assets/img/clienteIcon.png';
 import promoIcon from '../assets/img/promotionIcon.png';
 
@@ -52,7 +52,7 @@ function Home() {
                 </div>
 
                 <div onClick={handleFunciCadastrarClick} className='delay-1000'>
-                    <img src={pedido} />
+                    <img src={cadaFuncImg} />
                     <h1>Cadastrar Funcionário</h1>
                 </div>
 
@@ -86,19 +86,29 @@ function Home() {
     {
         acesso = (
             <>
-                <div onClick={handleDashBoardClick}>
-                    <img src={dashIcon} alt="dashboard" />
-                    <h1>DashBoard</h1>
-                </div>
-
                 <div onClick={handleFunciCadastrarClick} className='delay-1000'>
-                    <img src={pedido} />
+                    <img src={cadaFuncImg} />
                     <h1>Cadastrar Funcionário</h1>
                 </div>
 
                 <div onClick={handleFuncionarioClick} className='delay-200'>
                     <img src={funcionarioIcon} />
                     <h1>Listar Funcionários</h1>
+                </div>
+
+                <div onClick={handleClientesClick} className='delay-400'>
+                    <img src={clienteIcon} />
+                    <h1>Listar Clientes</h1>
+                </div>
+
+                <div onClick={handleProdBuscarClick} className='delay-300'>
+                    <img src={produtoIcon} />
+                    <h1>Buscar Produtos</h1>
+                </div>
+
+                <div onClick={handlePromocaoClick} className='delay-500'>
+                    <img src={promoIcon} />
+                    <h1>Criar Promoção</h1>
                 </div>
             </>
         )
@@ -108,6 +118,25 @@ function Home() {
     {
         acesso = (
             <>
+                <div onClick={handleFuncionarioClick} className='delay-200'>
+                    <img src={funcionarioIcon} />
+                    <h1>Listar Funcionários</h1>
+                </div>
+
+                <div onClick={handleClientesClick} className='delay-400'>
+                    <img src={clienteIcon} />
+                    <h1>Listar Clientes</h1>
+                </div>
+
+                <div onClick={handleProdBuscarClick} className='delay-300'>
+                    <img src={produtoIcon} />
+                    <h1>Buscar Produtos</h1>
+                </div>
+
+                <div onClick={handlePromocaoClick} className='delay-500'>
+                    <img src={promoIcon} />
+                    <h1>Criar Promoção</h1>
+                </div>
             </>
         )
     }
@@ -130,7 +159,7 @@ function Home() {
 
         <h1 id='tituloHome' className='text-[40px] text-[#005FB3] text-center m-50'>Olá, Seja Bem-Vindo(a) {usuarioNome}</h1>
 
-        <div id='menuHome' className='text-[20px] grid grid-cols-3 w-[90%] m-auto gap-[170px]'>
+        <div id='menuHome' className='text-[20px] grid grid-cols-3 w-[90%] ml-[60px] mb-[200px] gap-[170px]'>
             
         {acesso}
             

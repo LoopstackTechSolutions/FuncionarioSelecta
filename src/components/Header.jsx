@@ -3,13 +3,16 @@ import perfil from '../assets/img/perfil.svg?react';
 import Button from './Button';
 
 function Header() {
+
+    const usuarioNome = localStorage.getItem('nome');
+
     return (
         <>
         <header className="h-[68px] flex items-center justify-end pl-5 pr-5">
 
                 <div className='flex items-center justify-end gap-15'>
                     <div className='flex items-center gap-1.5'>
-                        <h2>Olá, Usuário</h2>
+                        <h2>Olá, {usuarioNome}</h2>
                         <img src={perfil} className='w-[42px] h-auto' />
                     </div>
                     

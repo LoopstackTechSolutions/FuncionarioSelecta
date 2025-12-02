@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 function NavBar () {
 
     const navigate = useNavigate();
+    let acesso = '';
 
     const handleHomeClick = () => {
         navigate('/home');
@@ -42,14 +43,10 @@ function NavBar () {
         navigate('/clientes');
     }
 
-    return (
-        
-        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 w-[110px] overflow-hidden hover:w-[350px] group'>
-            <ul  className='flex flex-col gap-15 cursor-pointer'>
-                <img src={logo} className='w-[200px] imgLogoNavbar pl-1 mb-5 group-hover:pl-15 transition-all duration-300' />
-
-                <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
-
+    if (localStorage.getItem('nivelAcesso') == 'admin')
+    {
+        acesso = (
+            <>
                 <li onClick={handleDashBoardClick}> <img src={dashIcon}  /> DashBoard</li>
 
                 <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon}  /> Funcionários </li>
@@ -61,6 +58,51 @@ function NavBar () {
                 <li onClick={handlePromocaoClick}> <img src={promoIcon} /> Criar promoção</li>
 
                 <li onClick={handleClientesClick}> <img src={clienteIcon} /> Listar Clientes</li>
+            </>
+        )
+    }
+
+    else if (localStorage.getItem('nivelAcesso') == 'gerente')
+    {
+        acesso = (
+            <>
+                <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon}  /> Listar Funcionários </li>
+
+                <li onClick={handleFunciCadastrarClick}> <img src={pedidoIcon}  /> Cadastrar Funcionário </li>
+
+                <li onClick={handleClientesClick}> <img src={clienteIcon} /> Listar Clientes</li>
+
+                <li onClick={handleProdBuscarClick}> <img src={produtoIcon} /> Buscar Produto</li>
+
+                <li onClick={handlePromocaoClick}> <img src={promoIcon} /> Criar promoção</li>
+            </>
+        )
+    }
+
+    else
+    {
+        acesso = (
+            <>
+                <li onClick={handleFuncionarioClick}> <img src={funcionarioIcon}  />Listar Funcionários </li>
+
+                <li onClick={handleClientesClick}> <img src={clienteIcon} />Listar Clientes</li>
+
+                <li onClick={handleProdBuscarClick}> <img src={produtoIcon} /> Buscar Produto</li>
+
+                <li onClick={handlePromocaoClick}> <img src={promoIcon} /> Criar promoção</li>
+            </>
+        )
+    }
+
+    return (
+        
+        <div id='navbar' className='mr-28 text-[20px] h-full fixed z-10 top-0 border-b-20 border-t-20 border-l-20 border-r-2 bg-white border-white border-r-[#D3D3D3] pt-9 w-[110px] overflow-hidden hover:w-[350px] group'>
+            <ul  className='flex flex-col gap-15 cursor-pointer'>
+                <img src={logo} className='w-[200px] imgLogoNavbar pl-1 mb-5 group-hover:pl-15 transition-all duration-300' />
+
+                <li onClick={handleHomeClick}> <img src={homeIcon} /> Página Inicial</li>
+
+                {acesso}
             </ul>
         </div>
     )
