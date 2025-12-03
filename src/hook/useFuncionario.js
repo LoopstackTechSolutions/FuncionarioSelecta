@@ -5,13 +5,20 @@ export const useFuncionarios = () => {
 
     const [funcionarios, setFuncionarios] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [loadingInitial, setLoadingInitial] = useState(true);
     const [error, setError] = useState('');
 
-    const fetchFuncionarios = async () => {
+    const fetchFuncionarios = async (isInitial) => {
             
         try {
             setLoading(true);
             setError('');
+
+            if (isInitial)
+                setLoadingInitial(true);
+
+            else
+                setLoading(true);
 
             const response = await api.get('/selectaAPI/Employee/funcionario/listar');
             setFuncionarios(response.data);
@@ -23,7 +30,11 @@ export const useFuncionarios = () => {
         }
 
         finally {
-            setLoading(false);
+            if (isInitial) {
+                setLoadingInitial(false);
+            } else {
+                setLoading(false);
+            }
         }
     };
 
@@ -105,12 +116,13 @@ export const useFuncionarios = () => {
     }
 
     useEffect(() => {
-        fetchFuncionarios();
+        fetchFuncionarios(true);
     }, []);
 
     return {
         funcionarios: funcionarios,
         loading,
+        loadingInitial,
         error,
         refetch: fetchFuncionarios,
         cadastrarFuncionario,

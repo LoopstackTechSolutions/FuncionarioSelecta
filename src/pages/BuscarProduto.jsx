@@ -2,6 +2,7 @@ import Header from "../components/Header"
 import NavBar from "../components/NavBar"
 import Table from "../components/Table"
 import lupa from "../assets/img/lupa.png";
+import loadingGif from "../assets/img/loading.gif";
 import { useProdutos } from "../hook/useProduto";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -9,12 +10,22 @@ import { useState } from "react";
 function BuscarProduto() {
     const navigate = useNavigate();
 
-    const {produtos, loading, error, refetch, inputValue, setInputValue} = useProdutos();
+    const {produtos, loading, loadingInitial, error, refetch, inputValue, setInputValue} = useProdutos();
     
     const handleChange = (event) => {setInputValue(event.target.value);}
 
-    if (loading)
-        return (<p>Carregando...</p>)
+    if (loadingInitial)
+        return (
+        <div className="text-center w-full m-auto flex flex-col justify-center items-center mt-[300px]">
+            <img src={loadingGif} />
+            <h1 className="text-[40px] text-[#005FB3]">Carregando...</h1>
+
+            <div id='fundoGradient'>
+                <div className='w-[938px] h-[875px] top-[-300px] left-[-300px]'></div>
+                <div className='w-[753px] h-[753px] bottom-0 right-0'></div>
+            </div>
+        </div>
+    )
 
     else
     {

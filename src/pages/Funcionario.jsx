@@ -3,12 +3,13 @@ import Button from "../components/Button"
 import Header from "../components/Header"
 import NavBar from "../components/NavBar"
 import Table from "../components/Table"
+import loadingGif from "../assets/img/loading.gif";
 import { useFuncionarios } from "../hook/useFuncionario"
 
 function Funcionario() {
     const navigate = useNavigate();
 
-    const {funcionarios, loading, error, refetch, deleteFuncionario} = useFuncionarios();
+    const {funcionarios, loading, loadingInitial, error, refetch, deleteFuncionario} = useFuncionarios();
 
     const handleDelete = async (id) => {
         const confirmado = window.confirm('Deseja excluir este funcionário?');
@@ -55,53 +56,73 @@ function Funcionario() {
 
     const buttonClass = 'group flex justify-center items-center border-[6px] rounded-[5px] transition-all duration-300 cursor-pointer';
 
-    return (
-        <>
-        <Header />
-        <NavBar />
+    if (loadingInitial)
+    {
+        return (
+            <div className="text-center w-full m-auto flex flex-col justify-center items-center mt-[300px]">
+                <img src={loadingGif} />
+                <h1 className="text-[40px] text-[#005FB3]">Carregando...</h1>
+    
+                <div id='fundoGradient'>
+                    <div className='w-[938px] h-[875px] top-[-300px] left-[-300px]'></div>
+                    <div className='w-[753px] h-[753px] bottom-0 right-0'></div>
+                </div>
+            </div>
+        )
+    }
+            
+    else
+    {
+        return (
+            <>
+            <Header />
+            <NavBar />
 
-        <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[890px]">Funcionários</h1>
+            <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[890px]">Funcionários</h1>
 
-        
-        <Table ml={'ml-62'} headerItens={['ID', 'Nome', 'Email', 'Senha', 'CPF', 'Nível de Acesso', 'Ação']}>
-                
-                {funcionarios.map((funcionario) => (
-                    <tr key={funcionario.idFuncionario} className="hover:bg-gray-100 transition-colors duration-300">
-                        <td>{funcionario.idFuncionario}</td>
-                        <td>{funcionario.nome}</td>
-                        <td>{funcionario.email}</td>
-                        <td>****</td>
-                        <td>{funcionario.cpf}</td>
-                        <td>{funcionario.nivelAcesso}</td>
-                        <td>
-                            <div className="flex justify-center items-center gap-1.5 text-white mb-2.5 mt-2.5">
-                                <button 
-                                onClick={() => navigate(`/funcionario/editar/${funcionario.idFuncionario}`)}
-                                className={`bg-[#0074D9] border-[#0074D9] hover:bg-[#0056a1] hover:border-[#0056a1] ${buttonClass}`}>
-                                    Editar
-                                    {editIcon}
-                                </button>
-                                <span className="text-gray-400">|</span>
-                                <button 
-                                onClick={() => handleDelete(funcionario.idFuncionario)}
-                                className={`bg-red-700 border-4 border-red-700 rounded-[5px] hover:bg-red-800 hover:border-red-800 transition-all ${buttonClass}`}
-                                >
-                                    Deletar
-                                    {deleteIcon}
-                                </button>
-                            </div>
-                        </td>
+            
+            <Table ml={'ml-62'} headerItens={['ID', 'Nome', 'Email', 'Senha', 'CPF', 'Nível de Acesso', 'Ação']}>
+                    
+                    {funcionarios.map((funcionario) => (
+                        <tr key={funcionario.idFuncionario} className="hover:bg-gray-100 transition-colors duration-300">
+                            <td>{funcionario.idFuncionario}</td>
+                            <td>{funcionario.nome}</td>
+                            <td>{funcionario.email}</td>
+                            <td>****</td>
+                            <td>{funcionario.cpf}</td>
+                            <td>{funcionario.nivelAcesso}</td>
+                            <td>
+                                <div className="flex justify-center items-center gap-1.5 text-white mb-2.5 mt-2.5">
+                                    <button 
+                                    onClick={() => navigate(`/funcionario/editar/${funcionario.idFuncionario}`)}
+                                    className={`bg-[#0074D9] border-[#0074D9] hover:bg-[#0056a1] hover:border-[#0056a1] ${buttonClass}`}>
+                                        Editar
+                                        {editIcon}
+                                    </button>
+                                    <span className="text-gray-400">|</span>
+                                    <button 
+                                    onClick={() => handleDelete(funcionario.idFuncionario)}
+                                    className={`bg-red-700 border-4 border-red-700 rounded-[5px] hover:bg-red-800 hover:border-red-800 transition-all ${buttonClass}`}
+                                    >
+                                        Deletar
+                                        {deleteIcon}
+                                    </button>
+                                </div>
+                            </td>
 
-                    </tr>
-                ))}
-        </Table>
+                        </tr>
+                    ))}
+            </Table>
 
-        <div id='fundoGradient'>
-            <div className='w-[938px] h-[875px] top-[-200px] left-[-300px]'></div>
-            <div className='w-[753px] h-[753px] bottom-0 right-0'></div>
-        </div>
-        </>
-    )
+            <div id='fundoGradient'>
+                <div className='w-[938px] h-[875px] top-[-200px] left-[-300px]'></div>
+                <div className='w-[753px] h-[753px] bottom-0 right-0'></div>
+            </div>
+            </>
+        )
+    }
+
+    
 }
 
 export default Funcionario
