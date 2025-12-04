@@ -94,13 +94,13 @@ export default function EditarFuncionario() {
             onChange={handleChange}
             className="border-2 h-9 mb-20 border-[#7C7C7C] rounded-[5px] w-full focus:border-[#0074D9] outline-0 transition-all duration-300">
                     <option className="text-[#3d3d3d]" value="">(Selecione)</option>
-                    <option className="text-[#3d3d3d]" value="gerente">Comum</option>
-                    <option className="text-[#3d3d3d]" value="escritorio">Administrador</option>
-                    <option className="text-[#3d3d3d]" value="logistica">Gerente</option>
+                    <option className="text-[#3d3d3d]" value="comum">Comum</option>
+                    <option className="text-[#3d3d3d]" value="admin">Administrador</option>
+                    <option className="text-[#3d3d3d]" value="gerente">Gerente</option>
             </select>
 
             <div className="text-center">
-                <button type="submit" className="w-[50%] h-[53px] border-2 ">{loading ? 'Salvando' : 'Salvar alterações'}</button>
+                <button type="submit" className="w-[50%] h-[53px] border-2 rounded-2xl bg-[#0074D9] text-white hover:bg-[#005aa8] hover:transform hover:scale-[1.1] transition-all duration-300'">{loading ? 'Salvar alterações' : 'Salvando'}</button>
             </div>
             
         </Form>

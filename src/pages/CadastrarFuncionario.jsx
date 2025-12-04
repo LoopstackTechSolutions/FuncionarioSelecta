@@ -36,7 +36,7 @@ function CadastrarFuncionario() {
 
         <h1 className="text-[40px] text-[#005FB3] mt-20 mb-10 ml-[790px]">Cadastrar Funcionário</h1>
 
-        <Form onsubmit={handleSubmit} margin="50px 500px">
+        <Form onSubmit={handleSubmit} margin="50px 500px">
 
             <label>Nome</label>
             <TextBox type="text" value={novoFuncionario.Nome} 
@@ -69,7 +69,7 @@ function CadastrarFuncionario() {
             </select>
 
             <div className="text-center">
-                <Button width="50%" height="53px" modo="azul" />
+                <button type="submit" className="w-[50%] h-[53px] border-2 rounded-2xl bg-[#0074D9] text-white hover:bg-[#005aa8] hover:transform hover:scale-[1.1] transition-all duration-300'">{loading ? 'Salvar alterações' : 'Salvando'}</button>
             </div>
             
         </Form>

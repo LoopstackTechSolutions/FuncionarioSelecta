@@ -8,6 +8,8 @@ export const useFuncionarios = () => {
     const [loadingInitial, setLoadingInitial] = useState(true);
     const [error, setError] = useState('');
 
+    const token = localStorage.getItem("token");
+
     const fetchFuncionarios = async (isInitial) => {
             
         try {
@@ -20,8 +22,14 @@ export const useFuncionarios = () => {
             else
                 setLoading(true);
 
-            const response = await api.get('/selectaAPI/Employee/funcionario/listar');
+            const response = await api.get('/selectaAPI/Employee/funcionario/listar', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setFuncionarios(response.data);
+
+            console.log("LISTA FUNCIONÁRIOS:", response.data);
         }
 
         catch (err) {
@@ -66,7 +74,7 @@ export const useFuncionarios = () => {
             setError('');
 
             await api.delete(`/selectaAPI/Employee/funcionario/remover/${id}`);
-            setFuncionarios(prev => prev.filter(f => f.id != id));
+            setFuncionarios(prev => prev.filter(f => f.idFuncionario != id));
 
             return true;
         }
@@ -91,7 +99,11 @@ export const useFuncionarios = () => {
 
             const response = await api.put(
                 `/selectaAPI/Employee/editar-funcionario/${id}`,
-                dadosAtualizado
+                dadosAtualizado, {
+                    headers: {
+                    Authorization: `Bearer ${token}`
+                }
+                }
             );
 
             setFuncionarios(prev =>
